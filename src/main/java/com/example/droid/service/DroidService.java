@@ -48,9 +48,9 @@ public class DroidService {
         boolean exists2 = (droidEntity.getManufacturer().equals(droidEntity1.getManufacturer())&&
                             droidEntity.getModelId().equals(droidEntity1.getModelId()));
         boolean exists3 = !droidRepository.getAllByManufacturerAndModelId(droidEntity.getManufacturer(),droidEntity.getModelId()).isEmpty();
-        if(!exists2 && exists3){
-            throw new DroidExistsException("Droid "+ droidEntity.getManufacturer()+ " already exists");
-        };
+//        if(!exists2 && exists3){
+//            throw new DroidExistsException("Droid "+ droidEntity.getManufacturer()+ " already exists");
+//        };
 
         DroidEntity droidEntityFromDB = droidRepository.findById(id).get();
         droidEntityFromDB.setBuiltAt(droidEntity.getBuiltAt());

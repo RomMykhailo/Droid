@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class DroidController {
     @Autowired
     private DroidService droidService;
     @PostMapping("/add")
-    public ResponseEntity addDroid(@RequestBody DroidEntity droid){
+    public ResponseEntity addDroid(@Valid @RequestBody DroidEntity droid){
         droidService.createDroid(droid);
         return ResponseEntity.ok("Droid added");
     }
